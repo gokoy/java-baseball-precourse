@@ -23,7 +23,8 @@ public class Controller {
         do {
             view.inputNumbers();
             String answer = Console.readLine().trim();
-            view.printScore(baseballGame.playRound(answer));
+            ScoreBoard scoreBoard = baseballGame.playRound(answer);
+            view.printScore(scoreBoard);
         } while (baseballGame.isGameOver());
     }
 
