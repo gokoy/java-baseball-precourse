@@ -1,6 +1,14 @@
 package baseball;
 
+import static baseball.GameConfig.COUNT;
+import static baseball.GameConfig.END_BOUND_NUMBER;
+import static baseball.GameConfig.GAME_RESTART_CONDITION;
+import static baseball.GameConfig.START_BOUND_NUMBER;
+
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
 
@@ -12,24 +20,36 @@ public class Controller {
 
     public void playGame() {
         do {
-            BaseballGame baseballGame = new BaseballGame();
-            run(baseballGame);
+            BaseballGame baseballGame = new BaseballGame(
+                    Randoms.pickUniqueNumbersInRange(START_BOUND_NUMBER, END_BOUND_NUMBER, COUNT));
+            playRound(baseballGame);
             view.gameOver();
             view.restartGame();
         } while (restart());
     }
 
-    private void run(BaseballGame baseballGame) {
+    private void playRound(BaseballGame baseballGame) {
         do {
             view.inputNumbers();
-            String answer = Console.readLine().trim();
-            ScoreBoard scoreBoard = baseballGame.playRound(answer);
+            String input = Console.readLine().trim();
+            AnswerValidator.validate(input);
+            List<Integer> answer = StringToIntegerList(input);
+            ScoreBoard scoreBoard = baseballGame.check(answer);
             view.printScore(scoreBoard);
         } while (baseballGame.isGameOver());
     }
 
+    private List<Integer> StringToIntegerList(String input) {
+        String[] strings = input.split("");
+        List<Integer> answer = new ArrayList<>();
+        for (String string : strings) {
+            answer.add(Integer.valueOf(string));
+        }
+        return answer;
+    }
+
     private boolean restart() {
         String condition = Console.readLine();
-        return condition.equals("1");
+        return condition.equals(GAME_RESTART_CONDITION);
     }
 }
