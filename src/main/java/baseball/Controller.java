@@ -34,8 +34,8 @@ public class Controller {
             String input = Console.readLine().trim();
             AnswerValidator.validate(input);
             List<Integer> answer = StringToIntegerList(input);
-            ScoreBoard scoreBoard = baseballGame.check(answer);
-            view.score(scoreBoard);
+            Hint hint = baseballGame.check(answer);
+            view.printHint(hint);
         } while (!baseballGame.isGameOver());
     }
 

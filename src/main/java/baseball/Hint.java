@@ -1,11 +1,11 @@
 package baseball;
 
-public class ScoreBoard {
+public class Hint {
 
     private final int strike;
     private final int ball;
 
-    public ScoreBoard(int strike, int ball) {
+    public Hint(int strike, int ball) {
         this.strike = strike;
         this.ball = ball;
     }

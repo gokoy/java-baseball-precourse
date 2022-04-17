@@ -13,7 +13,7 @@ public class BaseballGame {
         gameOver = false;
     }
 
-    public ScoreBoard check(final List<Integer> answer) {
+    public Hint check(final List<Integer> answer) {
         int strike = 0;
         int ball = 0;
         for (int i = 0; i < answer.size(); i++) {
@@ -23,7 +23,7 @@ public class BaseballGame {
 
         isCorrectAnswer(strike);
 
-        return new ScoreBoard(strike, ball);
+        return new Hint(strike, ball);
     }
 
     private void isCorrectAnswer(int strike) {

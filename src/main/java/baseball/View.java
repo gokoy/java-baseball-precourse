@@ -15,7 +15,7 @@ public class View {
         System.out.println("게임을 새로 시작하려면 " + GameConfig.GAME_RESTART_CONDITION + ", 종료하려면 2를 입력하세요.");
     }
 
-    public void score(ScoreBoard scoreBoard) {
+    public void printHint(Hint scoreBoard) {
         StringBuilder builder = new StringBuilder();
 
         if (scoreBoard.getBall() > 0) {
