@@ -13,10 +13,18 @@ public class Controller {
     public void playGame() {
         do {
             BaseballGame baseballGame = new BaseballGame();
-            baseballGame.run();
+            run(baseballGame);
             view.gameOver();
             view.restartGame();
         } while (restart());
+    }
+
+    private void run(BaseballGame baseballGame) {
+        do {
+            view.inputNumbers();
+            String answer = Console.readLine().trim();
+            view.printScore(baseballGame.playRound(answer));
+        } while (baseballGame.isGameOver());
     }
 
     private boolean restart() {
