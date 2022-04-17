@@ -35,7 +35,7 @@ public class Controller {
             AnswerValidator.validate(input);
             List<Integer> answer = StringToIntegerList(input);
             ScoreBoard scoreBoard = baseballGame.check(answer);
-            view.printScore(scoreBoard);
+            view.score(scoreBoard);
         } while (baseballGame.isGameOver());
     }
 

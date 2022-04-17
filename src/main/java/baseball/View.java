@@ -12,10 +12,24 @@ public class View {
     }
 
     public void restartGame() {
-        System.out.print("게임을 새로 시작하려면 " + GameConfig.RESTART_GAME + ", 종료하려면 2를 입력하세요.");
+        System.out.print("게임을 새로 시작하려면 " + GameConfig.GAME_RESTART_CONDITION + ", 종료하려면 2를 입력하세요.");
     }
 
-    public void printScore(ScoreBoard scoreBoard) {
+    public void score(ScoreBoard scoreBoard) {
+        StringBuilder builder = new StringBuilder();
 
+        if (scoreBoard.getBall() > 0) {
+            builder.append(scoreBoard.getBall()).append("볼 ");
+        }
+
+        if (scoreBoard.getStrike() > 0) {
+            builder.append(scoreBoard.getStrike()).append("스트라이크");
+        }
+
+        if (builder.length() == 0) {
+            builder.append("낫싱");
+        }
+
+        System.out.println(builder);
     }
 }
