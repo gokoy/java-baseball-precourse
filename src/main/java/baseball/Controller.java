@@ -36,7 +36,7 @@ public class Controller {
             List<Integer> answer = StringToIntegerList(input);
             ScoreBoard scoreBoard = baseballGame.check(answer);
             view.score(scoreBoard);
-        } while (baseballGame.isGameOver());
+        } while (!baseballGame.isGameOver());
     }
 
     private List<Integer> StringToIntegerList(String input) {
