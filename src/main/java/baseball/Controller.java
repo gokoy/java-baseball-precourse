@@ -1,12 +1,8 @@
 package baseball;
 
-import static baseball.GameConfig.COUNT;
-import static baseball.GameConfig.END_BOUND_NUMBER;
 import static baseball.GameConfig.GAME_RESTART_CONDITION;
-import static baseball.GameConfig.START_BOUND_NUMBER;
 
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +16,9 @@ public class Controller {
 
     public void playGame() {
         do {
+            List<Integer> randomNumbers = Generator.generateRandomNumbers();
             BaseballGame baseballGame = new BaseballGame(
-                    Randoms.pickUniqueNumbersInRange(START_BOUND_NUMBER, END_BOUND_NUMBER, COUNT));
+                    randomNumbers);
             playRound(baseballGame);
             view.gameOver();
             view.restartGame();
