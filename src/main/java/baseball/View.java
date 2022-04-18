@@ -7,7 +7,7 @@ public class View {
     }
 
     public void gameOver() {
-        System.out.println(GameConfig.COUNT + "개의 숫자를 모두 맞혔습니다! 게임종료");
+        System.out.println(GameConfig.COUNT + "개의 숫자를 모두 맞혔습니다! 게임 종료");
 
     }
 
