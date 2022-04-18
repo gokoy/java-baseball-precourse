@@ -8,8 +8,8 @@ public class BaseballGame {
 
     private boolean gameOver;
 
-    public BaseballGame(List<Integer> randomNums) {
-        solution = randomNums;
+    public BaseballGame(List<Integer> randomNumbers) {
+        solution = randomNumbers;
         gameOver = false;
     }
 
